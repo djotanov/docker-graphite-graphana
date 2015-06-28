@@ -11,6 +11,7 @@ host ports:
 - `2003`: the carbon-cache line receiver (the standard graphite protocol)
 - `2004`: the carbon-cache pickle receiver
 - `7002`: the carbon-cache query port (used by the web interface)
+- `46500`: ssh interface (username/password is root/admin)
 
 
 You can log into the administrative interface of graphite-web (a Django

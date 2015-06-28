@@ -13,7 +13,7 @@ run     apt-get -y install  python-django-tagging python-simplejson python-memca
 
 run apt-get install -y openssh-server
 run mkdir /var/run/sshd
-run echo 'root:screencast' | chpasswd
+run echo 'root:admin' | chpasswd
 run sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
