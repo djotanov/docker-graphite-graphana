@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ ! -d /data/graphite ]; then
+  mkdir -p /data/graphite/whisper
+  mkdir -p /data/graphite/log/webapp
+  touch /data/graphite/graphite.db /data/graphite/index
+  chown -R www-data /data/graphite
+  chmod 0775 /data/graphite /data/graphite/whisper
+  chmod 0664 /data/graphite/graphite.db
+  cd /var/lib/graphite/webapp/graphite && python manage.py syncdb --noinput
+fi
+
+mkdir -p /data/grafana
+chown -R grafana /data/grafana
+rm -fr /data/graphite/*.pid
+
+mkdir -p /data/log/supervisor
+
+exec /usr/bin/supervisord
